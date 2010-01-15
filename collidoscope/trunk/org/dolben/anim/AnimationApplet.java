@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2005-2006 by Hank Dolben
+ *  Copyright (c) 2005-2010 Hank Dolben
  *  Licensed under the Open Software License version 2.1
  *  http://opensource.org/licenses/osl-2.1.php
  */
@@ -17,9 +17,10 @@ import java.util.TimerTask;
  */
 public abstract class AnimationApplet extends Applet {
     
+    private static final long serialVersionUID = 1;
     private Timer sprocket = new Timer(true);   // advances animation
     private TimerTask shutter = new Shutter();  // animation shutter
-    private final static int DEFAULT_PERIOD = 100;    
+    private static final int DEFAULT_PERIOD = 100;
     private Image buffer;                       // off screen drawing buffer
     private Graphics offScreen;                 // off screen graphics context
     private Graphics onScreen;                  // on screen graphics context

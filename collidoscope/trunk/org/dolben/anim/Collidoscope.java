@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2005-2007 by Hank Dolben
+ *  Copyright (c) 2005-2010 Hank Dolben
  *  Licensed under the Open Software License version 2.1
  *  http://opensource.org/licenses/osl-2.1.php
  */
@@ -26,6 +26,7 @@ import org.dolben.poly.Solid;
  */
 public abstract class Collidoscope extends AnimationApplet {
     
+    private static final long serialVersionUID = 1;
     private Projector projector;    // the projector to draw 3D
     private List bodies;            // the list of moving objects
     private Solid trap;             // the box they're in
@@ -54,7 +55,7 @@ public abstract class Collidoscope extends AnimationApplet {
         double[] limit = cuboid.getExtent();
         createBodies(limit);
         double vmax =
-			(period/1000.0)*Rn.magnitude(limit)/Math.sqrt(2*bodies.size());
+            (period/1000.0)*Rn.magnitude(limit)/Math.sqrt(2*bodies.size());
         Iterator it = bodies.iterator();
         while ( it.hasNext() ) {
             Body body = (Body)it.next();

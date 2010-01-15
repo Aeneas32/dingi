@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2005-2007 by Hank Dolben
+ *  Copyright (c) 2005-2010 Hank Dolben
  *  Licensed under the Open Software License version 2.1
  *  http://opensource.org/licenses/osl-2.1.php
  */
@@ -45,6 +45,8 @@ import org.dolben.poly.SnubDodecahedron;
  */
 public class ArchimedeanGas extends Collidoscope {
     
+    private static final long serialVersionUID = 1;
+
     /**
      *  Creates the bodies in the simulation.
      */

@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2005-2006 by Hank Dolben
+ *  Copyright (c) 2005-2010 Hank Dolben
  *  Licensed under the Open Software License version 2.1
  *  http://opensource.org/licenses/osl-2.1.php
  */
@@ -35,7 +35,7 @@ public abstract class Solid {
         
     /**
      *  Draws the polyhedron.
-	 *
+     *
      *  @param projector the projector that maps 3D to Graphics coordinates
      *  @param graphics  the drawing context
      */
