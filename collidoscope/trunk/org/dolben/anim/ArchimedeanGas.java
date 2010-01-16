@@ -5,9 +5,7 @@
  */
 package org.dolben.anim;
 
-import java.awt.Color;
 import org.dolben.poly.ColoredFaces;
-import org.dolben.poly.ShadedFaces;
 import org.dolben.poly.TruncatedTetrahedron;
 import org.dolben.poly.TruncatedCube;
 import org.dolben.poly.TruncatedOctahedron;
@@ -64,8 +62,7 @@ public class ArchimedeanGas extends Collidoscope {
         initBody(new ColoredFaces(new TruncatedCube             ()),radius);
         initBody(new ColoredFaces(new TruncatedOctahedron       ()),radius);
         initBody(new ColoredFaces(new TruncatedDodecahedron     ()),radius);
-        Color color = new Color(0.0f,1.0f,0.5f);
-        initBody(new ShadedFaces(new TruncatedIcosahedron      (),color),radius);
+        initBody(new ColoredFaces(new TruncatedIcosahedron      ()),radius);
         
         initBody(new ColoredFaces(new Cuboctahedron             ()),radius);
         initBody(new ColoredFaces(new TruncatedCuboctahedron    ()),radius);
