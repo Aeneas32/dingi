@@ -1,9 +1,6 @@
 /**
- *  @author  Hank Dolben
- *  @version 2004 Mar 12
- *
  *  MarkN: interactive n digit number game
- *  Copyright (c) 2000-2004 by Hank Dolben
+ *  Copyright (c) 2000-2010 Hank Dolben
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -27,14 +24,13 @@ import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Panel;
 import java.awt.Button;
-import java.awt.Checkbox;
-import java.awt.TextField;
 import java.awt.event.*;
 
 /**
  *  This is an applet that scores a user's guesses of an <i>N Digit Number</i>
  */
 public class Scorer extends Applet {
+    public static final long serialVersionUID = 1;
     private ScoreboardCanvas _scoreboard; // display of guesses and scores
     private Numbah           _target;     // number the user tries to guess
     private NumberField      _guess;      // the user's guess

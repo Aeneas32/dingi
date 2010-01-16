@@ -1,9 +1,6 @@
 /**
- *  @author  Hank Dolben
- *  @version 2004 Mar 12
- *
  *  MarkN: interactive n digit number game
- *  Copyright (c) 2000-2004 by Hank Dolben
+ *  Copyright (c) 2000-2010 Hank Dolben
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -27,8 +24,6 @@ import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Panel;
 import java.awt.Button;
-import java.awt.Checkbox;
-import java.awt.TextField;
 import java.awt.event.*;
 
 /**
@@ -38,6 +33,8 @@ import java.awt.event.*;
  *  the newGenerator factory method.
  */
 public abstract class Guesser extends Applet {
+    
+    public static final long serialVersionUID = 1;
     //  Derivation Interface
     
     /**
@@ -187,7 +184,6 @@ public abstract class Guesser extends Applet {
      *  starts the program's guessing over
      */
     private void startGuessing( ) {
-        Numbah guess;
         _generator = newGenerator();
         _s = new NumberScrambler();
         _scoreButton.setEnabled(true);

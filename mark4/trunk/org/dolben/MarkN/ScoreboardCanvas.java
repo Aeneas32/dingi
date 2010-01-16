@@ -1,9 +1,6 @@
 /**
- *  @author  Hank Dolben
- *  @version 2004 Mar 12
- *
  *  MarkN: interactive n digit number game
- *  Copyright (c) 2000-2004 by Hank Dolben
+ *  Copyright (c) 2000-2010 Hank Dolben
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -32,6 +29,7 @@ import java.util.Vector;
  *  plus a message.
  */
 class ScoreboardCanvas extends Canvas {
+    public static final long serialVersionUID = 1;
     private Vector _guess;   // the guesses
     private Vector _score;   // the scores
     private String _message; // the message

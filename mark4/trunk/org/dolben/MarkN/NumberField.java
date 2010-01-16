@@ -1,9 +1,6 @@
 /**
- *  @author  Hank Dolben
- *  @version 2004 Mar 12
- *
  *  MarkN: interactive n digit number game
- *  Copyright (c) 2000-2004 by Hank Dolben
+ *  Copyright (c) 2000-2010 Hank Dolben
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -28,6 +25,7 @@ import java.awt.TextField;
  *  This is a field for entry of an <i>N Digit Number</i>.
  */
 public class NumberField extends TextField {
+    public static final long serialVersionUID = 1;
 
     /**
      *  constructs a new number entry field
