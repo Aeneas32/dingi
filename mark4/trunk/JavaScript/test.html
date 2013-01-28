@@ -1,0 +1,168 @@
+<html>
+  <head>
+    <title>Mark4</title>
+    <script src="markx.js"></script>
+    <script src="markn.js"></script>
+    <style>
+      div.scoreboard {
+        position:relative; left:41;
+        border:solid 1px; padding:4px; margin:4px;
+        height:200px; width:100px; overflow:auto;
+        text-align:left; background-color:white;
+      }
+      div.side {
+        position:absolute; top:0; width:200px; margin:8px; padding:4px;
+        border:solid 2px; text-align:center;
+        background-color:#C0C0E0;
+      }
+      div.head {
+        height:48px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="side" style="left:0;">
+      <b>Human</b><br>
+      <div class="head">
+        <button onClick="newSecret()">New</button>
+      </div>
+      <div id="human" class="scoreboard"></div>
+      <div>
+        <select id="guess0" onChange="validateNumber('guess')">
+          <option value="0" selected>0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <select id="guess1" onChange="validateNumber('guess')">
+          <option value="0">0</option>
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <select id="guess2" onChange="validateNumber('guess')">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <select id="guess3" onChange="validateNumber('guess')">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <button id="guess" onClick="guess()">Guess</button>
+        <button onClick="reveal()">Reveal</button>
+      </div>
+    </div>
+    <script>
+      var human = new Scoreboard("human");
+      newSecret();
+    </script>
+    <div class="side" style="left:220;">
+      <b>Machine</b><br>
+      <div class="head">
+        <select id="target0" onChange="validateNumber('target')">
+          <option value="0" selected>0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <select id="target1" onChange="validateNumber('target')">
+          <option value="0">0</option>
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <select id="target2" onChange="validateNumber('target')">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <select id="target3" onChange="validateNumber('target')">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <button onClick="retarget()">New</button>
+        <button id="target" onClick="target()">Target</button>
+        <button onClick="random()">Random</button>
+      </div>
+      <div id="home" class="scoreboard"></div>
+      <div>
+        <select id="placed" onChange="validateScore()">
+          <option value="0" selected>0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <select id="misplaced" onChange="validateScore()">
+          <option value="0" selected>0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <br>
+        <button id="score" onClick="score()">Score</button>
+        <button id="retract" onClick="retract()">Retract</button>
+      </div>
+    </div>
+    <script language="JavaScript">
+      var machine = new Scoreboard("home");
+      retarget();
+    </script>
+  </body>
+</html>
