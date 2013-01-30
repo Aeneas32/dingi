@@ -21,19 +21,38 @@ var PLACES =  4;
 
 function Scoreboard( id ) {
     this.scoreboard = document.getElementById(id);
-    this.line = 1;
+    this.clear();
 }
 
 Scoreboard.prototype.clear = function( ) {
     while ( this.scoreboard.firstChild ) {
         this.scoreboard.removeChild(this.scoreboard.firstChild);
     }
+    for ( var i = 0; i < 8; i++ ) {
+        this.scoreboard.appendChild(document.createElement("br"));
+    }
     this.line = 1;
 }
 
+Scoreboard.prototype.scroll = function( ) {
+    this.scoreboard.scrollTop =
+        this.scoreboard.scrollHeight-this.scoreboard.clientHeight;
+}
+
+Scoreboard.prototype.putText = function( text ) {
+    this.scoreboard.appendChild(document.createTextNode(text));
+    this.scroll();
+}
+
 Scoreboard.prototype.putGuess = function( guess ) {
-    this.scoreboard.appendChild(document.createTextNode(
-        this.line+": "+guess+" "));
+    this.putText(this.line+": "+guess+" ");
+}
+
+Scoreboard.prototype.putScore = function( score ) {
+    this.scoreboard.appendChild(document.createTextNode(score));
+    this.scoreboard.appendChild(document.createElement("br"));
+    this.line++;
+    this.scroll();
 }
 
 Scoreboard.prototype.retract = function( ) {
@@ -41,16 +60,7 @@ Scoreboard.prototype.retract = function( ) {
     this.scoreboard.removeChild(this.scoreboard.lastChild);
     this.scoreboard.removeChild(this.scoreboard.lastChild);
     this.scoreboard.removeChild(this.scoreboard.lastChild);
-}
-
-Scoreboard.prototype.putScore = function( score ) {
-    this.scoreboard.appendChild(document.createTextNode(score));
-    this.scoreboard.appendChild(document.createElement("br"));
-    this.line++;
-    if ( this.scoreboard.scrollHeight > this.scoreboard.clientHeight ) {
-        this.scoreboard.scrollTop =
-            this.scoreboard.scrollHeight-this.scoreboard.clientHeight;
-    }
+    this.scroll();
 }
 
 function RandomDeal( n ) {
@@ -102,9 +112,7 @@ Guesser.prototype.guess = function( ) {
     var guess = new Number();
     this.generator.nextGuess(guess);
     if ( guess.digit.length == 0 ) {
-        machine.scoreboard.appendChild(
-            document.createTextNode("inconsistent scores")
-        );
+        machine.putText("inconsistent scores");
         document.getElementById("score").disabled = true;
     } else {
         var number = this.mapGuess(guess);
