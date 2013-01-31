@@ -95,6 +95,7 @@ function Guesser( ) {
     this.digitMap = deal.getMap();
     var deal = new RandomDeal(PLACES);
     this.placeMap = deal.getMap();
+    this.inconsistentScores = false;
     machine.clear();
 }
 
@@ -113,6 +114,7 @@ Guesser.prototype.guess = function( ) {
     this.generator.nextGuess(guess);
     if ( guess.digit.length == 0 ) {
         machine.putText("inconsistent scores");
+        this.inconsistentScores = true;
         document.getElementById("score").disabled = true;
     } else {
         var number = this.mapGuess(guess);
@@ -124,6 +126,7 @@ Guesser.prototype.guess = function( ) {
 
 Guesser.prototype.retract = function( ) {
     this.generator.retractScore();
+    this.inconsistentScores = false;
 }
 
 var guesser;
@@ -179,7 +182,8 @@ function getScore( ) {
 
 function validateScore( ) {
     var score = getScore();
-    document.getElementById("score").disabled = !score.valid(PLACES);
+    document.getElementById("score").disabled =
+        guesser.inconsistentScores || !score.valid(PLACES);
 }
 
 function score( ) {
